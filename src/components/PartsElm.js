@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 const PartsElm = ({ name, result, onClick }) => (
-    <div onClick={onClick}>
+    <div onClick={onClick} className={"partsElm"}>
         <span>WEPON</span>
         <div>
             <img src="" alt="" /><span>MAIN</span>
