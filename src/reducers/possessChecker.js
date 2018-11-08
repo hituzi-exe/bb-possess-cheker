@@ -8,12 +8,11 @@ const initialAppState = {
 const possessChecker = (state = initialAppState, action) => {
     if (action.type === actionTypes.PARTS_CLICK) {
         return {
-            name:"M91",
+            ...state,
             resultValue: state.resultValue + 1,
         };
     }
     
-    console.info(action.type);
     return state;
 };
 

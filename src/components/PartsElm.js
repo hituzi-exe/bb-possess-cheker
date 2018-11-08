@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 const PartsElm = ({ name, result, onClick }) => (
-    <div>
+    <div onClick={onClick}>
         <span>WEPON</span>
         <div>
             <img src="" alt="" /><span>MAIN</span>
@@ -12,7 +12,6 @@ const PartsElm = ({ name, result, onClick }) => (
         </div>
         <div><span>{name}</span></div>
         <div><span>{result}</span></div>
-        <button onClick={onClick}>{name}</button>
     </div>
 );
 
