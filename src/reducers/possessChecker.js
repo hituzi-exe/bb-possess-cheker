@@ -9,7 +9,7 @@ const possessChecker = (state = initialAppState, action) => {
     if (action.type === actionTypes.PARTS_CLICK) {
         return {
             ...state,
-            resultValue: state.resultValue + 1,
+            resultValue: state.resultValue === 4 ? 0 : state.resultValue + 1,
         };
     }
     
