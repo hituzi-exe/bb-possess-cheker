@@ -27,10 +27,8 @@ const mapState = (state, ownProps) => ({
     possessChecker: state.possessChecker,
 });
 
-function mapDispach(dispach) {
-    return {
-        actions: bindActionCreators(actions, dispach),
-    };
-}
+const mapDispach = (dispach) => ({
+    actions: bindActionCreators(actions, dispach),
+});
 
 export default connect(mapState, mapDispach)(PossessCheckerContainer);
