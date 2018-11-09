@@ -13,7 +13,8 @@ code {
     monospace;
 }
 .partsContainer {
-  display: flex
+  display: flex;
+  flex-wrap: wrap;
 }
 .partsElm {
   border: 1px solid #dbdbdb;
