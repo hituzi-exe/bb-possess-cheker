@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const PartsElm = ({ name, result, onClick }) => (
+const PartsElm = ({ name, count, onClick }) => (
     <div onClick={onClick} className={"partsElm"}>
         <span>WEPON</span>
         <div>
@@ -11,7 +11,7 @@ const PartsElm = ({ name, result, onClick }) => (
             <img src="" alt="" />
         </div>
         <div><span>{name}</span></div>
-        <div><span>{result}</span></div>
+        <div><span>{count}</span></div>
     </div>
 );
 

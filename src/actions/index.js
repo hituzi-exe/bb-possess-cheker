@@ -7,6 +7,7 @@ export const onNumClick = (number) => ({
 export const onPlusClick = () => ({
     type: actionType.PLUS,
 });
-export const onPartsClick = () => ({
+export const onPartsClick = (idx) => ({
     type: actionType.PARTS_CLICK,
+    idx,
 });

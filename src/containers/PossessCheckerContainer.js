@@ -8,22 +8,16 @@ import PartsElm from '../components/PartsElm';
 class PossessCheckerContainer extends Component {
     render() {
         const { possessChecker, actions } = this.props;
-        const partsList = [
-            {"idx": 1, "name": "M90"},
-            {"idx": 2, "name": "M91"}
-        ];
 
         return (
-            
             <div>
-                {partsList.map(d => { 
-                    return <li>{d.name}</li>
+                {possessChecker.possessList.map(d => { 
+                    return <PartsElm
+                        key={d.idx}
+                        name={d.name}
+                        count={d.count}
+                        onClick={() => actions.onPartsClick(d.idx)} />
                 })}
-                
-                <PartsElm
-                    name={possessChecker.name}
-                    result={possessChecker.resultValue}
-                    onClick={actions.onPartsClick} />
             </div>
         );
     }
