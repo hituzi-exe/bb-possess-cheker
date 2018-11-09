@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
-import PartsElm from '../components/PartsElm';
 import PartsHeader from '../components/PartsHeader';
+import PartsContainer from '../components/PartsContainer';
 
 class PossessCheckerContainer extends Component {
     render() {
@@ -15,14 +15,7 @@ class PossessCheckerContainer extends Component {
                 <div className={"partsHeader"}>
                     <PartsHeader partsList={possessChecker.partsList} />
                 </div>
-                <div className={"partsContainer"}>
-                    {possessChecker.partsList.map(parts => { 
-                        return <PartsElm
-                            key={parts.idx}
-                            parts={parts}
-                            onClick={() => actions.onPartsClick(parts.idx)} />
-                    })}
-                </div>
+                <PartsContainer partsList={possessChecker.partsList} actions={actions}/>
             </div>
         );
     }
