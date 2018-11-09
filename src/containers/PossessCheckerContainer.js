@@ -11,12 +11,11 @@ class PossessCheckerContainer extends Component {
 
         return (
             <div className={"partsContainer"}>
-                {possessChecker.partsList.map(d => { 
+                {possessChecker.partsList.map(parts => { 
                     return <PartsElm
-                        key={d.idx}
-                        name={d.name}
-                        count={d.count}
-                        onClick={() => actions.onPartsClick(d.idx)} />
+                        key={parts.idx}
+                        parts={parts}
+                        onClick={() => actions.onPartsClick(parts.idx)} />
                 })}
             </div>
         );
