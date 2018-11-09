@@ -2,7 +2,7 @@ import * as actionTypes from '../utils/actionTypes';
 import partsJson from '../data/weapon.json';
 
 const initialAppState = {
-    partsList: partsJson
+    partsList: partsJson.map(p => Object.assign({}, p, { count: 0 }))
 }
 
 const possessChecker = (state = initialAppState, action) => {
