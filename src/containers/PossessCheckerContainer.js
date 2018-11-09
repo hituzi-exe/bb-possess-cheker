@@ -12,9 +12,7 @@ class PossessCheckerContainer extends Component {
 
         return (
             <div>
-                <div className={"partsHeader"}>
-                    <PartsHeader partsList={possessChecker.partsList} />
-                </div>
+                <PartsHeader partsList={possessChecker.partsList} />
                 <PartsContainer partsList={possessChecker.partsList} actions={actions}/>
             </div>
         );
