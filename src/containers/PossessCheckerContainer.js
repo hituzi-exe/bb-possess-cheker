@@ -10,7 +10,7 @@ class PossessCheckerContainer extends Component {
         const { possessChecker, actions } = this.props;
 
         return (
-            <div>
+            <div className={"partsContainer"}>
                 {possessChecker.partsList.map(d => { 
                     return <PartsElm
                         key={d.idx}

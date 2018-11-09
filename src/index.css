@@ -12,6 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.partsContainer {
+  display: flex
+}
 .partsElm {
   border: 1px solid #dbdbdb;
   margin: 10px;
