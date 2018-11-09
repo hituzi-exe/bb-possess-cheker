@@ -11,7 +11,7 @@ class PossessCheckerContainer extends Component {
 
         return (
             <div>
-                {possessChecker.possessList.map(d => { 
+                {possessChecker.partsList.map(d => { 
                     return <PartsElm
                         key={d.idx}
                         name={d.name}
