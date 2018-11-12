@@ -1,1 +1,3 @@
 export const PARTS_CLICK = 'PARTS_CLICK';
+export const MENU_PARTS_CLICK = 'MENU_PARTS_CLICK';
+export const MENU_WEAPON_CLICK = 'MENU_WEAPON_CLICK';
