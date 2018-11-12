@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-//import logo from '../images/logo.svg';
+
+import assault from '../images/assault.png';
+import heavy from '../images/heavy.png';
+import guerrilla from '../images/guerrilla.png';
+import support from '../images/support.png';
 
 const PartsElm = ({ parts, onClick }) => {
     const className = "partsElm partsElm__count_" + parts.count;
@@ -24,21 +28,21 @@ const PartsDivision = ({ parts }) => (
 const PartsCategory = ({ parts }) => {
     const imgSrc = category => {
         switch (category) {
-            case "MAIN":
-                return "";
-            case 1:
-                return "";
-            case 2:
-                return "";
-            case 3:
-                return "";
+            case "assault":
+                return assault;
+            case "heavy":
+                return heavy;
+            case "guerrilla":
+                return guerrilla;
+            case "support":
+                return support;
             default:
                 return "";
         }
     };
 
     return (
-        <div><img src={imgSrc(parts.category)} alt="" /><span>{parts.category}</span></div>
+        <div><img src={imgSrc(parts.armament)} alt="" /><span>{parts.category}</span></div>
     )
 };
 
