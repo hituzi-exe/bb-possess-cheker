@@ -17,7 +17,7 @@ const PartsElm = ({ parts, onClick }) => {
 };
 
 const PartsDivision = ({ parts }) => (
-    <div className="partsElm__division"><span >WEAPON</span></div>
+    <div className="partsElm__division"><span>{parts.division}</span></div>
 )
 
 //TODO 兵装アイコン読込に変更すること
