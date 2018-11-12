@@ -38,6 +38,15 @@ code {
   padding-bottom: 3px;
 }
 
+.menu__item_state_current {
+  border-top: 1px solid #999;
+  border-left: 8px solid #999;
+  border-bottom: 1px solid #999;
+  background: linear-gradient(90deg, #ccc 33%, #fff 66%);
+
+}
+
+
 .content {
   float: right;
   width: 1000px;

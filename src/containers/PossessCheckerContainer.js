@@ -14,7 +14,7 @@ class PossessCheckerContainer extends Component {
             <div className="PossessCheckerWrapper">
                 <div className="PossessChecker">
                     <div className="menu">
-                        <div className="menu__item"><span>武器</span></div>
+                        <div className="menu__item menu__item_state_current"><span>武器</span></div>
                         <div className="menu__item"><span>機体パーツ</span></div>
                     </div>
                     
