@@ -12,16 +12,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .partsContainer {
   display: flex;
   flex-wrap: wrap;
 }
+
 .partsElm {
   border: 1px solid #dbdbdb;
   margin: 10px;
-  padding: 5px;
-  width: 100px;
+  width: 120px;
 }
-.partsElm__count_0 {
+
+.partsElm__division {
+  margin: 5px;
+  font-size: 50%;
+  text-align: right;
+}
+.partsElm__progress {
+  width: 100%;
+}
+.partsElm__count_0,
+.partsElm__progress_count_0 {
   background-color: #777;
+}
+
+.partsElm__progress_count_1,
+.partsElm__progress_count_2, 
+.partsElm__progress_count_3, 
+.partsElm__progress_count_4,
+.partsElm__count_1,
+.partsElm__count_2,
+.partsElm__count_3,
+.partsElm__count_4 {
+  background-color: #fff;
 }
