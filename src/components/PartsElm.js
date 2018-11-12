@@ -24,27 +24,26 @@ const PartsDivision = ({ parts }) => (
     <div className="partsElm__division"><span>{parts.division}</span></div>
 )
 
-//TODO 兵装アイコン読込に変更すること
-const PartsCategory = ({ parts }) => {
-    const imgSrc = category => {
-        switch (category) {
-            case "assault":
-                return assault;
-            case "heavy":
-                return heavy;
-            case "guerrilla":
-                return guerrilla;
-            case "support":
-                return support;
-            default:
-                return "";
-        }
-    };
-
-    return (
-        <div><img src={imgSrc(parts.armament)} alt="" /><span>{parts.category}</span></div>
-    )
+const readImg = armament => {
+    switch (armament) {
+        case "assault":
+            return assault;
+        case "heavy":
+            return heavy;
+        case "guerrilla":
+            return guerrilla;
+        case "support":
+            return support;
+        default:
+            return "";
+    }
 };
+
+const PartsCategory = ({ parts }) => (
+    <div className="partsElm__category">
+        <img src={readImg(parts.armament)} alt="" /><span>{parts.category}</span>
+    </div>
+);
 
 const PartsImage = ({ parts }) => (
     <div><img src={parts.imgSrc} alt="" /></div>

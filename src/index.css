@@ -22,7 +22,11 @@ code {
   border: 1px solid #dbdbdb;
   margin: 10px;
   width: 120px;
-
+  
+  /* クリックできないようにする */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .partsElm__division {
