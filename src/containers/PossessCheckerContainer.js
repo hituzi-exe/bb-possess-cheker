@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
+import Menu from '../components/Menu';
 import PartsHeader from '../components/PartsHeader';
 import PartsContainer from '../components/PartsContainer';
 
@@ -13,11 +14,7 @@ class PossessCheckerContainer extends Component {
         return (
             <div className="PossessCheckerWrapper">
                 <div className="PossessChecker">
-                    <div className="menu">
-                        <div className="menu__item menu__item_state_current"><span>武器</span></div>
-                        <div className="menu__item"><span>機体パーツ</span></div>
-                    </div>
-                    
+                    <Menu menuList={possessChecker.menuList} actions={actions} />
                     <div className="content">
                         <PartsHeader partsList={possessChecker.partsList} />
                         <PartsContainer partsList={possessChecker.partsList} actions={actions}/>

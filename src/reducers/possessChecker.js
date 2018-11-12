@@ -2,7 +2,8 @@ import * as actionTypes from '../utils/actionTypes';
 import partsJson from '../data/weapon.json';
 
 const initialAppState = {
-    partsList: partsJson.map(p => Object.assign({}, p, { count: 0 }))
+    partsList: partsJson.map(p => Object.assign({}, p, { count: 0 })),
+    menuList: [{ "title": "武器", "isSelected": true }, { "title": "機体パーツ", "isSelected": false }],
 }
 
 const possessChecker = (state = initialAppState, action) => {
@@ -18,6 +19,8 @@ const possessChecker = (state = initialAppState, action) => {
                 ]
             });
 
+        case actionTypes.MENU_CLICK:
+            return state;
         default:
             return state;
     }

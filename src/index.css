@@ -19,13 +19,13 @@ code {
 }
 
 .PossessChecker {
-  max-width: 1200px;
+  max-width: 1220px;
   margin: 0 auto;
 }
 
 .menu {
   float: left;
-  width: 194px;
+  width: 190px;
   padding-right: 6px;
 }
 
@@ -47,10 +47,12 @@ code {
 
 }
 
-
 .content {
   float: right;
   width: 1000px;
+  padding: 3px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
 .partsHeader {
@@ -72,7 +74,7 @@ code {
 
 .partsElm {
   border: 1px solid #dbdbdb;
-  margin: 10px;
+  margin: 8px;
   width: 120px;
   
   /* クリックできないようにする */
