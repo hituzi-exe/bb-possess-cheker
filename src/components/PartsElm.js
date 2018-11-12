@@ -50,16 +50,9 @@ const PartsName = ({ parts }) => (
     <div><span>{parts.name}</span></div>
 );
 
-const PartsProgress = ({ parts }) => {
-    const className = "partsElm__progress partsElm__progress_count_" + parts.count;
-
-    return (
-        <progress
-            className={className}
-            max="3"
-            value={parts.count - 1}></progress>
-    )
-};
+const PartsProgress = ({ parts }) => (
+    <div className={`partsElm__progress partsElm__progress_count_${parts.count}`}></div>
+);
 
 PartsElm.propTypes = {
     onClick: PropTypes.func.isRequired,

@@ -22,6 +22,7 @@ code {
   border: 1px solid #dbdbdb;
   margin: 10px;
   width: 120px;
+
 }
 
 .partsElm__division {
@@ -29,21 +30,32 @@ code {
   font-size: 50%;
   text-align: right;
 }
+
 .partsElm__progress {
   width: 100%;
+  height: 5px;
 }
-.partsElm__count_0,
-.partsElm__progress_count_0 {
+.partsElm__count_0 {
   background-color: #777;
 }
 
-.partsElm__progress_count_1,
-.partsElm__progress_count_2, 
-.partsElm__progress_count_3, 
-.partsElm__progress_count_4,
 .partsElm__count_1,
 .partsElm__count_2,
 .partsElm__count_3,
 .partsElm__count_4 {
   background-color: #fff;
+}
+
+.partsElm__progress_count_0,
+.partsElm__progress_count_1 {
+  background-color: #ddd;
+}
+.partsElm__progress_count_2 {
+  background: linear-gradient(90deg, #0089f2 33%, #ddd 33%);
+}
+.partsElm__progress_count_3 {
+  background: linear-gradient(90deg, #0089f2 66%, #ddd 66%);
+} 
+.partsElm__progress_count_4 {
+  background-color: #0089f2;
 }
