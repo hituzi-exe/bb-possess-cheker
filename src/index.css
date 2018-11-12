@@ -13,9 +13,39 @@ code {
     monospace;
 }
 
-.partsHeader{
-  border-left: 14px solid #ccc;
+.PossessCheckerWrapper {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.PossessChecker {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu {
+  float: left;
+  width: 194px;
+  padding-right: 6px;
+}
+
+.menu__item {
+  border-top: 1px solid #ccc;
+  border-left: 8px solid #ccc;
   border-bottom: 1px solid #ccc;
+  margin-bottom: 4px;
+  padding-left: 6px;
+  padding-bottom: 3px;
+}
+
+.content {
+  float: right;
+  width: 1000px;
+}
+
+.partsHeader {
+  border-left: 14px solid #ccc;
+  border-bottom: 2px solid #ccc;
   padding-left: 6px;
   line-height: 1.4;
   font-size: 1.375rem;

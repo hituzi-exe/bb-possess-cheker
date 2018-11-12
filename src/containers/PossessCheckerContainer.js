@@ -11,9 +11,18 @@ class PossessCheckerContainer extends Component {
         const { possessChecker, actions } = this.props;
 
         return (
-            <div>
-                <PartsHeader partsList={possessChecker.partsList} />
-                <PartsContainer partsList={possessChecker.partsList} actions={actions}/>
+            <div className="PossessCheckerWrapper">
+                <div className="PossessChecker">
+                    <div className="menu">
+                        <div className="menu__item"><span>武器</span></div>
+                        <div className="menu__item"><span>機体パーツ</span></div>
+                    </div>
+                    
+                    <div className="content">
+                        <PartsHeader partsList={possessChecker.partsList} />
+                        <PartsContainer partsList={possessChecker.partsList} actions={actions}/>
+                    </div>
+                </div>
             </div>
         );
     }
