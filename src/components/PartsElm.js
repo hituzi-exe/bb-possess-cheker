@@ -50,6 +50,8 @@ const PartsName = ({ parts }) => (
     <div><span>{parts.name}</span></div>
 );
 
+//TODO おそらくバッドプラクティス
+//parts.countとcssのclass名が依存してる。
 const PartsProgress = ({ parts }) => (
     <div className={`partsElm__progress partsElm__progress_count_${parts.count}`}></div>
 );
