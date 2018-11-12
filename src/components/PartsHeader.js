@@ -7,7 +7,7 @@ const PartsHeader = ({ partsList }) => {
         <div className={"partsHeader"}>
             <div>
                 <span>武器</span>
-                <span>{possessCount + "/" + partsList.length}</span>
+                <span className="partsHeader__counter">({possessCount + "/" + partsList.length})</span>
             </div>
         </div>
     )
