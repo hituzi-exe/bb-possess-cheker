@@ -9,9 +9,12 @@ import PartsContainer from '../components/PartsContainer';
 
 class PossessCheckerContainer extends Component {
     render() {
-        const { possessChecker, actions } = this.props;
+        const { possessChecker, param, actions } = this.props;
         const { items, title } = possessChecker.menuList.find(m => m.isSelected);
-
+        
+        //http://localhost:3000/hogehoge でparamに"hogehoge"がはいる
+        //console.debug(param);
+        
         return (
             <div className="PossessCheckerWrapper">
                 <div className="PossessChecker">
@@ -28,6 +31,7 @@ class PossessCheckerContainer extends Component {
 
 const mapState = (state, ownProps) => ({
     possessChecker: state.possessChecker,
+    param: ownProps.match.params.param,
 });
 
 const mapDispach = (dispach) => ({
