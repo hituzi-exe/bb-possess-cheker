@@ -16,8 +16,8 @@ class PossessCheckerContainer extends Component {
                 <div className="PossessChecker">
                     <Menu menuList={possessChecker.menuList} actions={actions} />
                     <div className="content">
-                        <PartsHeader partsList={possessChecker.partsList} />
-                        <PartsContainer partsList={possessChecker.partsList} actions={actions}/>
+                        <PartsHeader partsList={possessChecker.menuList.find(m => m.isSelected).list} />
+                        <PartsContainer partsList={possessChecker.menuList.find(m => m.isSelected).list} actions={actions}/>
                     </div>
                 </div>
             </div>
