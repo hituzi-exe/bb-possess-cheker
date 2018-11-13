@@ -1,13 +1,17 @@
 import * as actionTypes from '../utils/actionTypes';
-import partsJson from '../data/weapon.json';
+import weaponJson from '../data/weapon.json';
+import partsJson from '../data/parts.json';
 
 const initialAppState = {
-    partsList: partsJson.map(p => Object.assign({}, p, { count: 0 })),
-    menuList: [{ "title": "武器", "isSelected": true }, { "title": "機体パーツ", "isSelected": false }],
+    partsList: weaponJson.map(p => Object.assign({}, p, { count: 0 })),
+    menuList: [
+        {"idx":1, "title": "武器", "isSelected": true, "list": weaponJson},
+        {"idx":2, "title": "機体パーツ", "isSelected": false, "list": partsJson}],
+    
 }
 
 const possessChecker = (state = initialAppState, action) => {
-    switch (action.type) { 
+    switch (action.type) {
         case actionTypes.PARTS_CLICK:
             const orgItem = state.partsList.find(p => p.idx === action.idx);
 
@@ -20,7 +24,25 @@ const possessChecker = (state = initialAppState, action) => {
             });
 
         case actionTypes.MENU_CLICK:
-            return state;
+            return Object.assign({},
+                state,
+                {
+                menuList: state.menuList.map(menu => {
+                    return {
+                        "idx": menu.idx,
+                        "title": menu.title,
+                        "isSelected": menu.idx === action.idx,
+                        "list": menu.list
+                    };
+                    })
+                },
+                {
+                    partsList: state.menuList
+                        .find(menu => menu.idx === action.idx)
+                        .list.map(p => Object.assign({}, p, { count: 0 }))
+                }
+            );
+            
         default:
             return state;
     }

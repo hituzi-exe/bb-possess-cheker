@@ -13,8 +13,12 @@ const Menu = ({ menuList, actions }) => {
     )
 };
 
-const MenuItem = ({menu}) => (
-    <div className={`menu__item ${menu.isSelected && "menu__item_state_current"}`}><span>{menu.title}</span></div>
+const MenuItem = ({menu, onClick}) => (
+    <div
+        className={`menu__item ${menu.isSelected ? "menu__item_state_current" : ""}`}
+        onClick={onClick}>
+        <span>{menu.title}</span>
+    </div>
 )
 
 export default Menu;
