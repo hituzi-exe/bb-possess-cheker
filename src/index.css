@@ -25,7 +25,7 @@ code {
 }
 
 .menu {
-    width: 190px;
+  width: 190px;
   padding-right: 6px;
 }
 
@@ -48,8 +48,7 @@ code {
 }
 
 .content {
-  
-  width: 1000px;
+  width: 970px;
   padding: 3px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
