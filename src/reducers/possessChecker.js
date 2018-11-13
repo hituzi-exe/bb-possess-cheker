@@ -4,8 +4,8 @@ import partsJson from '../data/parts.json';
 
 const initialAppState = {
     menuList: [
-        { idx: 1, title: "武器", isSelected: true, list: weaponJson.map(p => { return { ...p, count: 0 }; }) },
-        { idx: 2, title: "機体パーツ", isSelected: false, list: partsJson.map(p => { return { ...p, count: 0 }; }) }
+        { idx: 1, title: "武器", isSelected: true, items: weaponJson.map(p => { return { ...p, count: 0 }; }) },
+        { idx: 2, title: "機体パーツ", isSelected: false, items: partsJson.map(p => { return { ...p, count: 0 }; }) }
     ],
 }
 
@@ -13,7 +13,7 @@ const possessChecker = (state = initialAppState, action) => {
     switch (action.type) {
         case actionTypes.PARTS_CLICK:
             //表示中のメニューから一覧を取得
-            const orgList = state.menuList.find(m => m.isSelected).list;
+            const orgList = state.menuList.find(m => m.isSelected).items;
             
             //クリックされたパーツの特定
             const orgItem = orgList.find(p => p.idx === action.idx);
@@ -23,8 +23,8 @@ const possessChecker = (state = initialAppState, action) => {
                 menuList: state.menuList.map(m => {
                     return {
                         ...m,
-                        list: !m.isSelected ?
-                            m.list :
+                        items: !m.isSelected ?
+                            m.items :
                             [...orgList.slice(0, action.idx),
                             Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
                             ...orgList.slice(action.idx + 1)]};
