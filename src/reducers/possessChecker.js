@@ -19,11 +19,11 @@ const possessChecker = (state = initialAppState, action) => {
         
             return Object.assign({},state,
                 {
-                menuList: state.menuList.map(menu => {
+                menuList: state.menuList.map(m => {
                     return {
-                        ...menu,
-                        list: !menu.isSelected ?
-                            menu.list :
+                        ...m,
+                        list: !m.isSelected ?
+                            m.list :
                             [...orgList.slice(0, action.idx),
                             Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
                             ...orgList.slice(action.idx + 1)]};
@@ -33,8 +33,8 @@ const possessChecker = (state = initialAppState, action) => {
         case actionTypes.MENU_CLICK:
             return Object.assign({}, state,
                 {
-                    menuList: state.menuList.map(menu => {
-                        return { ...menu, isSelected: menu.idx === action.idx, };
+                    menuList: state.menuList.map(m => {
+                        return { ...m, isSelected: m.idx === action.idx, };
                     })
                 }
             );
