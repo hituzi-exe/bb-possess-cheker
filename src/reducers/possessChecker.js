@@ -4,8 +4,9 @@ import partsJson from '../data/parts.json';
 
 const initialAppState = {
     menuList: [
-        {idx:1, title: "武器", isSelected: true, list: weaponJson.map(p => Object.assign({}, p, { count: 0 }))},
-        {idx:2, title: "機体パーツ", isSelected: false, list: partsJson.map(p => Object.assign({}, p, { count: 0 }))}],
+        { idx: 1, title: "武器", isSelected: true, list: weaponJson.map(p => { return { ...p, count: 0 }; }) },
+        { idx: 2, title: "機体パーツ", isSelected: false, list: partsJson.map(p => { return { ...p, count: 0 }; }) }
+    ],
 }
 
 const possessChecker = (state = initialAppState, action) => {
@@ -17,7 +18,7 @@ const possessChecker = (state = initialAppState, action) => {
             //クリックされたパーツの特定
             const orgItem = orgList.find(p => p.idx === action.idx);
         
-            return Object.assign({},state,
+            return Object.assign({}, state,
                 {
                 menuList: state.menuList.map(m => {
                     return {
