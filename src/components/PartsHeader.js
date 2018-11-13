@@ -1,12 +1,12 @@
 import React from 'react'
 
-const PartsHeader = ({ partsList }) => {
+const PartsHeader = ({title, partsList }) => {
     const possessCount = partsList.filter(p => p.count > 0).length;
 
     return (
         <div className={"partsHeader"}>
             <div>
-                <span>武器</span>
+                <span>{title}</span>
                 <span className="partsHeader__counter">({possessCount + "/" + partsList.length})</span>
             </div>
         </div>
