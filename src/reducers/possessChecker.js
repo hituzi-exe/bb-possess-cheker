@@ -1,11 +1,12 @@
 import * as actionTypes from '../utils/actionTypes';
+import * as menuTypes from '../utils/menuTypes';
 import weaponJson from '../data/weapon.json';
 import partsJson from '../data/parts.json';
 
 const initialAppState = {
     menuList: [
-        { idx: 1, title: "武器", isSelected: true, items: weaponJson.map(p => { return { ...p, count: 0 }; }) },
-        { idx: 2, title: "機体パーツ", isSelected: false, items: partsJson.map(p => { return { ...p, count: 0 }; }) }
+        { menuType: menuTypes.MENU_WEAPON, title: "武器", isSelected: true, items: weaponJson.map(p => { return { ...p, count: 0 }; }) },
+        { menuType: menuTypes.MENU_PARTS, title: "機体パーツ", isSelected: false, items: partsJson.map(p => { return { ...p, count: 0 }; }) }
     ],
 }
 
@@ -35,7 +36,7 @@ const possessChecker = (state = initialAppState, action) => {
             return Object.assign({}, state,
                 {
                     menuList: state.menuList.map(m => {
-                        return { ...m, isSelected: m.idx === action.idx, };
+                        return { ...m, isSelected: m.menuType === action.menuType, };
                     })
                 }
             );

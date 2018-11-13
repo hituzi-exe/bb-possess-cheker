@@ -7,7 +7,7 @@ const Menu = ({ menuList, actions }) => {
                 return <MenuItem
                     key={menu.idx}
                     menu={menu}
-                    onClick={() => actions.onMenuClick(menu.idx)} />
+                    onClick={() => actions.onMenuClick(menu.menuType)} />
             })}
         </div>
     )

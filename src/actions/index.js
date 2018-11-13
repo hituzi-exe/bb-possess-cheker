@@ -5,7 +5,7 @@ export const onPartsClick = (idx) => ({
     idx,
 });
 
-export const onMenuClick = (idx) => ({
+export const onMenuClick = (menuType) => ({
     type: actionType.MENU_CLICK,
-    idx,
+    menuType,
 });
