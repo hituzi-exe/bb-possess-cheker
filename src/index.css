@@ -21,11 +21,11 @@ code {
 .PossessChecker {
   max-width: 1220px;
   margin: 0 auto;
+  display: flex;
 }
 
 .menu {
-  float: left;
-  width: 190px;
+    width: 190px;
   padding-right: 6px;
 }
 
@@ -48,7 +48,7 @@ code {
 }
 
 .content {
-  float: right;
+  
   width: 1000px;
   padding: 3px;
   border-left: 1px solid #ccc;
