@@ -5,7 +5,7 @@ const Menu = ({ menuList, actions }) => {
         <div className={"menu"}>
             {menuList.map(menu => { 
                 return <MenuItem
-                    key={menu.idx}
+                    key={menu.menuType}
                     menu={menu}
                     onClick={() => actions.onMenuClick(menu.menuType)} />
             })}
