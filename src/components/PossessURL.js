@@ -1,5 +1,4 @@
 import React from 'react'
-import * as menuTypes from '../utils/menuTypes';
 import { paramEncode } from '../utils/UrlParamEncoder';
 
 import { Link } from 'react-router-dom'
