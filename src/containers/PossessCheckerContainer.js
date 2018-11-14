@@ -7,6 +7,9 @@ import Menu from '../components/Menu';
 import PartsHeader from '../components/PartsHeader';
 import PartsContainer from '../components/PartsContainer';
 
+//TODO 動作確認用
+import PossessURL from '../components/PossessURL';
+
 class PossessCheckerContainer extends Component {
     render() {
         const { possessChecker, param, actions } = this.props;
@@ -24,6 +27,7 @@ class PossessCheckerContainer extends Component {
                         <PartsContainer partsList={items} actions={actions}/>
                     </div>
                 </div>
+                <PossessURL menuList={possessChecker.menuList} />
             </div>
         );
     }
