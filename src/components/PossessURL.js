@@ -1,17 +1,20 @@
 import React from 'react'
-import { encodeParam, decodeParam } from '../utils/UrlParamEncoder';
+import { encodeParam } from '../utils/UrlParamEncoder';
+import { decodeParam } from '../utils/UrlParamDecoder';
 
 import { Link } from 'react-router-dom'
 
 const PossessURL = ({ menuList }) => {
+    const pramString = encodeParam(menuList);
+
     return (        
         <div className={"PossessURL"}>
-            <span>{encodeParam(menuList)}</span>
+            <span>{pramString}</span>
             <Link
-              to={encodeParam(menuList)}
+              to={pramString}
             >aaa
             </Link>
-            <span>{decodeParam(encodeParam(menuList))}</span>
+            <span>{decodeParam(pramString).partsArray.map(m=>m.count).toString()}</span>
         </div>
     )
 };
