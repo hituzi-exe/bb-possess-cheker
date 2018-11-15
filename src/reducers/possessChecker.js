@@ -1,5 +1,7 @@
 import * as actionTypes from '../utils/actionTypes';
 import * as menuTypes from '../utils/menuTypes';
+
+import { encodeParam } from '../utils/UrlParamEncoder';
 import weaponJson from '../data/weapon.json';
 import partsJson from '../data/parts.json';
 
@@ -8,6 +10,7 @@ const initialAppState = {
         { menuType: menuTypes.MENU_WEAPON, title: "武器", isSelected: true, items: weaponJson.map(p => { return { ...p, count: 0 }; }) },
         { menuType: menuTypes.MENU_PARTS, title: "機体パーツ", isSelected: false, items: partsJson.map(p => { return { ...p, count: 0 }; }) }
     ],
+    param: '',
 }
 
 const possessChecker = (state = initialAppState, action) => {
@@ -30,7 +33,8 @@ const possessChecker = (state = initialAppState, action) => {
                             Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
                             ...orgList.slice(action.idx + 1)]};
                     })
-                }
+                },
+                { param: encodeParam(state.menuList) },
             );
         case actionTypes.MENU_CLICK:
             return Object.assign({}, state,

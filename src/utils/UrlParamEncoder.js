@@ -2,7 +2,7 @@ import * as menuTypes from '../utils/menuTypes';
 
 const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
 
-export const paramEncode = (menuList) => {
+export const encodeParam = (menuList) => {
     const partsItems = menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
     const weaponItems = menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
 
@@ -15,7 +15,7 @@ export const paramEncode = (menuList) => {
 
 //先頭6bit(110101(適当なbit列))+24bitでパーツの総数、武器の総数を表現。
 //それぞれ12bitずつ使用する。さすがに4000種類以上は実装されないだろうとの算段。
-//30bitを64進数の文字列で返す。-> 5文字帰ってくるはず。
+//30bitを64進数の文字列で返す。5文字帰ってくるはず。
 const createUrlParamHeader = (partsNum, weaponNum) => {
     return dec64char.charAt(53) +
         partsNumTo64String(partsNum) +
