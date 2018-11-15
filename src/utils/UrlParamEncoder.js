@@ -32,7 +32,7 @@ const encodeUrlParamHeader = (partsNum, weaponNum) => {
 
 const partsNumTo64String = (num) => dec64char.charAt((num & 0xfc0) >> 6) + dec64char.charAt(num & 0x03f);
 
-const decodeUrlParamHeader = (param) => {
+export const decodeUrlParamHeader = (param) => {
     const nullParamHeader = { vesion: parseInt(version), partsNum: 0, weaponNum: 0, }
 
     const paramVersion = decodeVesion(param);
@@ -51,7 +51,7 @@ const decodeUrlParamHeader = (param) => {
     }
 }
 
-const decodeVesion = (param) => dec64char.indexOf(param.charAt(0));
+export const decodeVesion = (param) => dec64char.indexOf(param.charAt(0));
 
 const dec64TopartsNum = (dec64String) => {
     return (dec64char.indexOf(dec64String.charAt(0)) << 6) + dec64char.indexOf(dec64String.charAt(1));
