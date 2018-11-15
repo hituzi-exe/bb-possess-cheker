@@ -3,6 +3,10 @@ const version = 0b100001;
 const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
 
 export const decodeParam = (param) => {
+    if (param == null) {
+        return { version: 0, partsArray: [], weaponArray: [] }
+    }
+
     const header = decodeUrlParamHeader(param);
     const body = decodeUrlParamBody(param, header.partsNum, header.weaponNum);
 
