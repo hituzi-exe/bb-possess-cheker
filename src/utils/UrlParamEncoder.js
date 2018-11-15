@@ -1,12 +1,8 @@
-import * as menuTypes from '../utils/menuTypes';
 
 const version = 0b100001;
 const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
 
-export const encodeParam = (menuList) => {
-    const partsItems = menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
-    const weaponItems = menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
-
+export const encodeParam = (partsItems, weaponItems) => {
     const param = encodeUrlParamHeader(partsItems.length, weaponItems.length) +
         createUrlParamBody(partsItems) +
         createUrlParamBody(weaponItems);
