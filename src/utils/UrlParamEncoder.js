@@ -1,28 +1,61 @@
 import * as menuTypes from '../utils/menuTypes';
 
+const version = 0b100001;
 const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
 
 export const encodeParam = (menuList) => {
     const partsItems = menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
     const weaponItems = menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
 
-    const param = createUrlParamHeader(partsItems.length, weaponItems.length) +
+    const param = encodeUrlParamHeader(partsItems.length, weaponItems.length) +
         createUrlParamBody(weaponItems) +
         createUrlParamBody(partsItems);
 
     return param;
 }
 
-//先頭6bit(110101(適当なbit列))+24bitでパーツの総数、武器の総数を表現。
+export const decodeParam = (param) => {
+    const header = decodeUrlParamHeader(param);
+
+    //TODO デバッグ用
+    return header.vesion + ":" + header.partsNum + ":" + header.weaponNum;
+}
+
+//先頭6bitをバージョン情報、24bitをパーツの総数、武器の総数を表現。
 //それぞれ12bitずつ使用する。さすがに4000種類以上は実装されないだろうとの算段。
 //30bitを64進数の文字列で返す。5文字帰ってくるはず。
-const createUrlParamHeader = (partsNum, weaponNum) => {
-    return dec64char.charAt(53) +
+const encodeUrlParamHeader = (partsNum, weaponNum) => {
+    return dec64char.charAt(version) +
         partsNumTo64String(partsNum) +
         partsNumTo64String(weaponNum);
 }
 
 const partsNumTo64String = (num) => dec64char.charAt((num & 0xfc0) >> 6) + dec64char.charAt(num & 0x03f);
+
+const decodeUrlParamHeader = (param) => {
+    const nullParamHeader = { vesion: parseInt(version), partsNum: 0, weaponNum: 0, }
+
+    const paramVersion = decodeVesion(param);
+    
+    const partsStr = param.substr(1, 2);
+    const weaponStr = param.substr(3, 2);
+    
+    if (version !== paramVersion) {
+        return nullParamHeader;
+    }
+    
+    return {
+        vesion: paramVersion,
+        partsNum: dec64TopartsNum(partsStr),
+        weaponNum: dec64TopartsNum(weaponStr),
+    }
+}
+
+const decodeVesion = (param) => dec64char.indexOf(param.charAt(0));
+
+const dec64TopartsNum = (dec64String) => {
+    return (dec64char.indexOf(dec64String.charAt(0)) << 6) + dec64char.indexOf(dec64String.charAt(1));
+}
 
 const createUrlParamBody = (items) => {
     let retStr = "";

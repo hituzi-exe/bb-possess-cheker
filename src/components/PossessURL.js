@@ -1,5 +1,5 @@
 import React from 'react'
-import { encodeParam } from '../utils/UrlParamEncoder';
+import { encodeParam, decodeParam } from '../utils/UrlParamEncoder';
 
 import { Link } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ const PossessURL = ({ menuList }) => {
               to={encodeParam(menuList)}
             >aaa
             </Link>
+            <span>{decodeParam(encodeParam(menuList))}</span>
         </div>
     )
 };
