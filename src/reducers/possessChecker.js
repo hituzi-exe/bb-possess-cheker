@@ -22,22 +22,24 @@ const possessChecker = (state = initialAppState, action) => {
             //クリックされたパーツの特定
             const orgItem = orgList.find(p => p.idx === action.idx);
             
+            //クリックされたパーツのカウントを進める
+            const addedList =
+                [...orgList.slice(0, action.idx),
+                Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
+                ...orgList.slice(action.idx + 1)]
+            
             const partsItems = state.menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
             const weaponItems = state.menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
         
             return Object.assign({}, state,
                 {
-                menuList: state.menuList.map(m => {
+                    menuList: state.menuList.map(m => {
                     return {
                         ...m,
-                        items: !m.isSelected ?
-                            m.items :
-                            [...orgList.slice(0, action.idx),
-                            Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
-                            ...orgList.slice(action.idx + 1)]};
+                        items: !m.isSelected ? m.items : addedList
+                        };
                     })
                 },
-                { param: encodeParam(partsItems, weaponItems) },
             );
         case actionTypes.MENU_CLICK:
             return Object.assign({}, state,
