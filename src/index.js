@@ -7,7 +7,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
-import { routerMiddleware, ConnectedRouter, connectRouter } from 'connected-react-router';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import PossessCheckerContainer from './containers/PossessCheckerContainer';
 import reducer from './reducers';
