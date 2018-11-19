@@ -13,34 +13,27 @@ const initialAppState = {
     ],
 }
 
-export const setParam = (param) => {
+export const initialAppStateByParam = (param) => {
     if (param === null) {
-        return { type: actionTypes.SET_URL_PARAM, menuList: null, };
+        return;
     }
 
-    const setState = initialAppState;
+    const appState = initialAppState;
 
     const { weaponArray, partsArray} = decodeParam(param);
-    const partsItems = setState.menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
-    const weaponItems = setState.menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
-    for (let parts of partsItems) {
-        parts.count = partsArray.find(p => p.idx === parts.idx).count;
-    }
+    const weaponItems = appState.menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
     for (let parts of weaponItems) {
         parts.count = weaponArray.find(p => p.idx === parts.idx).count;
     }
-
-    return {
-        type: actionTypes.SET_URL_PARAM,
-        menuList: setState,
-    };
+    
+    const partsItems = appState.menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
+    for (let parts of partsItems) {
+        parts.count = partsArray.find(p => p.idx === parts.idx).count;
+    }
 }
-  
+
 const possessChecker = (state = initialAppState, action) => {
     switch (action.type) {
-        case actionTypes.SET_URL_PARAM:
-            return { ...state, menuList: action.menulist, }
-
         case actionTypes.PARTS_CLICK:
             //表示中のメニューから一覧を取得
             const orgList = state.menuList.find(m => m.isSelected).items;

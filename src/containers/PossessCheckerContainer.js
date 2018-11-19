@@ -4,12 +4,13 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 import PossessChecker from '../components/PossessChecker';
-import { setParam } from '../reducers/possessChecker';
+import { initialAppStateByParam } from '../reducers/possessChecker';
 
 class PossessCheckerContainer extends Component {
     componentWillMount = () => {
         const params = new URLSearchParams(this.props.location.search);
-        this.props.setParam(params.get('param'));
+        const param = params.get('param');
+        initialAppStateByParam(param);
     };
     
     componentWillReceiveProps = nextProps => {
@@ -17,27 +18,34 @@ class PossessCheckerContainer extends Component {
         if (nextProps.location !== this.props.location) {
             const params = new URLSearchParams(nextProps.location.search);
             const param = params.get('param');
-
-            this.props.setParam(param);
+            initialAppStateByParam(param);
         }
     };
 
     render() {
         const { possessChecker, actions } = this.props;
-        
+            
         return (
             <PossessChecker possessChecker={possessChecker} actions={actions} />
         );
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     possessChecker: state.possessChecker,
-    setParam: setParam,
 });
 
-const mapDispach = (dispach) => ({
+const mapDispach = (dispach, ownProps) => ({
     actions: bindActionCreators(actions, dispach),
+    push: (param) => {
+        const { location, history } = ownProps;
+        const params = new URLSearchParams(location.search);
+        params.set('param', param);
+        
+        history.push({
+          search: params.toString(),
+        });
+      },
 });
 
 export default connect(mapStateToProps, mapDispach)(PossessCheckerContainer);
