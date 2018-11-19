@@ -15,7 +15,7 @@ const PossessURL = ({ menuList }) => {
         <div className={"PossessURL"}>
             <span>{pramString}</span>
             <Link
-              to={pramString}
+              to={`/?param=${pramString}`}
             >aaa
             </Link>
             <span>{decodeParam(pramString).partsArray.map(m=>m.count).toString()}</span>
