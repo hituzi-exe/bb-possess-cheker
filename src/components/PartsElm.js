@@ -7,10 +7,8 @@ import guerrilla from '../images/guerrilla.png';
 import support from '../images/support.png';
 
 const PartsElm = ({ parts, onClick }) => {
-    const className = "partsElm partsElm__count_" + parts.count;
-
     return (
-        <div onClick={onClick} className={className}>
+        <div onClick={onClick} className={`partsElm partsElm__count_${parts.count}`}>
             <PartsDivision parts={parts} />
             <PartsCategory parts={parts} />
             <PartsImage parts={parts} />
