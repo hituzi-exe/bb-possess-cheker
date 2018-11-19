@@ -1,7 +1,6 @@
 import React from 'react'
 import * as menuTypes from '../utils/menuTypes';
 import { encodeParam } from '../utils/UrlParamEncoder';
-import { decodeParam } from '../utils/UrlParamDecoder';
 
 import { Link } from 'react-router-dom'
 
@@ -13,12 +12,8 @@ const PossessURL = ({ menuList }) => {
 
     return (        
         <div className={"PossessURL"}>
-            <span>{pramString}</span>
-            <Link
-              to={`/?param=${pramString}`}
-            >aaa
-            </Link>
-            <span>{decodeParam(pramString).partsArray.map(m=>m.count).toString()}</span>
+            <span>{`/?param=${pramString}`}</span>
+            <Link to={`/?param=${pramString}`}>param</Link>
         </div>
     )
 };
