@@ -43,7 +43,7 @@ const possessChecker = (state = initialAppState, action) => {
             //クリックされたパーツのカウントを進める
             const addedList =
                 [...orgList.slice(0, action.idx),
-                Object.assign({}, orgItem, { count: orgItem.count === 4 ? 0 : orgItem.count + 1 }),
+                Object.assign({}, orgItem, { count: orgItem.count > 3 ? 0 : orgItem.count + 1 }),
                 ...orgList.slice(action.idx + 1)]
         
             return Object.assign({}, state,
