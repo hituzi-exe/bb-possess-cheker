@@ -18,15 +18,14 @@ export const initialAppStateByParam = (param) => {
         return;
     }
 
-    const appState = initialAppState;
+    const { weaponArray, partsArray } = decodeParam(param);
 
-    const { weaponArray, partsArray} = decodeParam(param);
-    const weaponItems = appState.menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
+    const weaponItems = initialAppState.menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
     for (let parts of weaponItems) {
         parts.count = weaponArray.find(p => p.idx === parts.idx).count;
     }
     
-    const partsItems = appState.menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
+    const partsItems = initialAppState.menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
     for (let parts of partsItems) {
         parts.count = partsArray.find(p => p.idx === parts.idx).count;
     }
