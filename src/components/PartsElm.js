@@ -7,10 +7,8 @@ import guerrilla from '../images/guerrilla.png';
 import support from '../images/support.png';
 
 const PartsElm = ({ parts, onClick }) => {
-    const className = "partsElm partsElm__count_" + parts.count;
-
     return (
-        <div onClick={onClick} className={className}>
+        <div onClick={onClick} className={`partsElm partsElm__count_${parts.count}`}>
             <PartsDivision parts={parts} />
             <PartsCategory parts={parts} />
             <PartsImage parts={parts} />
@@ -21,32 +19,32 @@ const PartsElm = ({ parts, onClick }) => {
 };
 
 const PartsDivision = ({ parts }) => (
-    <div className="partsElm__division"><span>{parts.division}</span></div>
+    <div className='partsElm__division'><span>{parts.division}</span></div>
 )
 
 const readImg = armament => {
     switch (armament) {
-        case "assault":
+        case 'assault':
             return assault;
-        case "heavy":
+        case 'heavy':
             return heavy;
-        case "guerrilla":
+        case 'guerrilla':
             return guerrilla;
-        case "support":
+        case 'support':
             return support;
         default:
-            return "";
+            return '';
     }
 };
 
 const PartsCategory = ({ parts }) => (
-    <div className="partsElm__category">
-        <img src={readImg(parts.armament)} alt="" /><span>{parts.category}</span>
+    <div className='partsElm__category'>
+        <img src={readImg(parts.armament)} alt='' /><span>{parts.category}</span>
     </div>
 );
 
 const PartsImage = ({ parts }) => (
-    <div><img src={parts.imgSrc} alt="" /></div>
+    <div><img src={parts.imgSrc} alt='' /></div>
 );
 
 const PartsName = ({ parts }) => (

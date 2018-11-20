@@ -3,35 +3,49 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
-import Menu from '../components/Menu';
-import PartsHeader from '../components/PartsHeader';
-import PartsContainer from '../components/PartsContainer';
+import PossessChecker from '../components/PossessChecker';
+import { initialAppStateByParam } from '../reducers/possessChecker';
 
 class PossessCheckerContainer extends Component {
+    componentWillMount = () => {
+        const params = new URLSearchParams(this.props.location.search);
+        const param = params.get('param');
+        initialAppStateByParam(param);
+    };
+
+    componentWillReceiveProps = nextProps => {
+        // componentWillReceivePropsが無限に呼び出されるのを防ぐ
+        if (nextProps.location !== this.props.location) {
+            const params = new URLSearchParams(nextProps.location.search);
+            const param = params.get('param');
+            initialAppStateByParam(param);
+        }
+    };
+
     render() {
         const { possessChecker, actions } = this.props;
-        const { items, title } = possessChecker.menuList.find(m => m.isSelected);
 
         return (
-            <div className="PossessCheckerWrapper">
-                <div className="PossessChecker">
-                    <Menu menuList={possessChecker.menuList} actions={actions} />
-                    <div className="content">
-                        <PartsHeader title={title} partsList={items} />
-                        <PartsContainer partsList={items} actions={actions}/>
-                    </div>
-                </div>
-            </div>
+            <PossessChecker possessChecker={possessChecker} actions={actions} />
         );
     }
 }
 
-const mapState = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     possessChecker: state.possessChecker,
 });
 
-const mapDispach = (dispach) => ({
+const mapDispach = (dispach, ownProps) => ({
     actions: bindActionCreators(actions, dispach),
+    push: (param) => {
+        const { location, history } = ownProps;
+        const params = new URLSearchParams(location.search);
+        params.set('param', param);
+
+        history.push({
+            search: params.toString(),
+        });
+    },
 });
 
-export default connect(mapState, mapDispach)(PossessCheckerContainer);
+export default connect(mapStateToProps, mapDispach)(PossessCheckerContainer);

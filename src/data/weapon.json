@@ -2,7 +2,7 @@
     {"idx": 0, "division":"WEAPON", "armament":"assault", "name": "M90", "category":"MAIN" },
     {"idx": 1, "division":"WEAPON", "armament":"assault", "name": "M91", "category":"MAIN" },
     {"idx": 2, "division":"WEAPON", "armament":"assault", "name": "M99", "category":"MAIN" },
-    {"idx": 3, "division":"PARTS", "armament":"assault", "name": "M91", "category":"SUB" },
+    {"idx": 3, "division":"WEAPON", "armament":"assault", "name": "M91", "category":"SUB" },
     {"idx": 4, "division":"WEAPON", "armament":"heavy", "name": "M91", "category":"SUB" },
     {"idx": 5, "division":"WEAPON", "armament":"guerrilla", "name": "M91", "category":"MAIN" },
     {"idx": 6, "division":"WEAPON", "armament":"support", "name": "M91", "category":"MAIN" },

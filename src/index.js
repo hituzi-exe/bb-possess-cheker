@@ -3,16 +3,35 @@ import * as serviceWorker from './serviceWorker';
 
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+
 import PossessCheckerContainer from './containers/PossessCheckerContainer';
 import reducer from './reducers';
 
-const store = createStore(reducer);
+const history = createBrowserHistory();
+
+const store = createStore(
+    reducer(history), // root reducer with router state
+    compose(
+        applyMiddleware(
+            routerMiddleware(history), // for dispatching history actions
+        ),
+    ),
+);
 
 render(
     <Provider store={store}>
-        <PossessCheckerContainer />
+        <ConnectedRouter history={history}>
+            <div>
+                <Switch>
+                    <Route path='/:param?' component={PossessCheckerContainer} />
+                </Switch>
+            </div>
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
 );
