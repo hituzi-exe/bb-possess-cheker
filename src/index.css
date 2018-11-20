@@ -13,13 +13,40 @@ code {
     monospace;
 }
 
+.Header {
+  background-color: #242424;
+  color: #ccc;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+.Header__counter{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Header__start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header__end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .PossessCheckerWrapper {
   width: 100%;
   padding-top: 10px;
 }
 
 .PossessChecker {
-  max-width: 1220px;
+  max-width: 1060px;
   margin: 0 auto;
   display: flex;
 }
@@ -48,7 +75,7 @@ code {
 }
 
 .content {
-  width: 970px;
+  width: 830px;
   padding: 3px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;

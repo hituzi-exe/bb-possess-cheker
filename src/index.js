@@ -28,7 +28,7 @@ render(
         <ConnectedRouter history={history}>
             <div>
                 <Switch>
-                    <Route path='/:param?' component={PossessCheckerContainer} />
+                    <Route path='/' component={PossessCheckerContainer} />
                 </Switch>
             </div>
         </ConnectedRouter>
