@@ -9,7 +9,9 @@ import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
+import HomeContainer from './containers/HomeContainer';
 import PossessCheckerContainer from './containers/PossessCheckerContainer';
+import AssemblyAdjusterContainer from './containers/AssemblyAdjusterContainer';
 import reducer from './reducers';
 
 const history = createBrowserHistory();
@@ -34,8 +36,9 @@ render(
                     </div>
                 </header>
                 <Switch>
+                    <Route exact path="/" component={HomeContainer}/>
                     <Route path='/PossessChecker' component={PossessCheckerContainer} />
-                    <Route path='/AssemblyAdjuster' component={PossessCheckerContainer} />
+                    <Route path='/AssemblyAdjuster' component={AssemblyAdjusterContainer} />
                 </Switch>
             </div>
         </ConnectedRouter>

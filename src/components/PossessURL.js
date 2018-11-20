@@ -13,7 +13,8 @@ const PossessURL = ({ menuList }) => {
     return (        
         <div className={'PossessURL'}>
             <span>{`/?param=${pramString}`}</span>
-            <Link to={`/?param=${pramString}`}>param</Link>
+            <Link to={`/PossessChecker?param=${pramString}`}>Possess</Link>
+            <Link to={`/AssemblyAdjuster?param=${pramString}`}>AAA</Link>
         </div>
     )
 };
