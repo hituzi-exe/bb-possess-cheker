@@ -27,8 +27,15 @@ render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
+                <header class='Header'>
+                    <div class='Header__counter'>
+                        <div class='Header__start'>■パーツ所持率チェッカー</div>
+                        <div class='Header__end'></div>
+                    </div>
+                </header>
                 <Switch>
-                    <Route path='/' component={PossessCheckerContainer} />
+                    <Route path='/PossessChecker' component={PossessCheckerContainer} />
+                    <Route path='/AssemblyAdjuster' component={PossessCheckerContainer} />
                 </Switch>
             </div>
         </ConnectedRouter>
