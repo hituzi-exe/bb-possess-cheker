@@ -10,9 +10,10 @@ const PossessURL = ({ menuList }) => {
 
     const pramString = encodeParam(partsItems, weaponItems);
 
-    return (        
+    return (
         <div className={'PossessURL'}>
             <span>{`/?param=${pramString}`}</span>
+            <Link to={`/`}>Home</Link>
             <Link to={`/PossessChecker?param=${pramString}`}>Possess</Link>
             <Link to={`/AssemblyAdjuster?param=${pramString}`}>AAA</Link>
         </div>

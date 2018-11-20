@@ -12,6 +12,7 @@ class HomeContainer extends Component {
         
         return (
             <div>
+                <span>工事中</span>
                 <Link to={`/`}>Home</Link>
                 <Link to={`/PossessChecker?param=${paramString}`}>Possess</Link>
                 <Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link>

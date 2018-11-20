@@ -4,14 +4,16 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
-//import PossessChecker from '../components/PossessChecker';
+//import AssemblyAdjuster from '../components/AssemblyAdjuster';
 
 class AssemblyAdjusterContainer extends Component {
     render() {
-        const { paramString } = this.props;
-        
+        //const { AssemblyAdjuster } = this.props;
+        const paramString = '';
+
         return (
             <div>
+                <span>工事中</span>
                 <Link to={`/`}>Home</Link>
                 <Link to={`/PossessChecker?param=${paramString}`}>Possess</Link>
                 <Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link>
@@ -21,7 +23,7 @@ class AssemblyAdjusterContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    possessChecker: state.possessChecker,
+    AssemblyAdjuster: state.AssemblyAdjuster,
 });
 
 const mapDispach = (dispach, ownProps) => ({
