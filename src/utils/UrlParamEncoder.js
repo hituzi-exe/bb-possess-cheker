@@ -1,6 +1,5 @@
-
 const version = 0b100001;
-const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
+const dec64char = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/';
 
 export const encodeParam = (partsItems, weaponItems) => {
     const param = encodeUrlParamHeader(partsItems.length, weaponItems.length) +

@@ -12,7 +12,7 @@ class PossessCheckerContainer extends Component {
         const param = params.get('param');
         initialAppStateByParam(param);
     };
-    
+
     componentWillReceiveProps = nextProps => {
         // componentWillReceivePropsが無限に呼び出されるのを防ぐ
         if (nextProps.location !== this.props.location) {
@@ -24,7 +24,7 @@ class PossessCheckerContainer extends Component {
 
     render() {
         const { possessChecker, actions } = this.props;
-            
+
         return (
             <PossessChecker possessChecker={possessChecker} actions={actions} />
         );
@@ -41,11 +41,11 @@ const mapDispach = (dispach, ownProps) => ({
         const { location, history } = ownProps;
         const params = new URLSearchParams(location.search);
         params.set('param', param);
-        
+
         history.push({
-          search: params.toString(),
+            search: params.toString(),
         });
-      },
+    },
 });
 
 export default connect(mapStateToProps, mapDispach)(PossessCheckerContainer);

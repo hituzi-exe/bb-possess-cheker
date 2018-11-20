@@ -1,3 +1,5 @@
+//今の環境だと1回のテストに1分弱かかるので作成しない
+
 import { decodeVesion } from './UrlParamEncoder';
 
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import * as menuTypes from '../utils/menuTypes';
 import { encodeParam } from '../utils/UrlParamEncoder';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const PossessURL = ({ menuList }) => {
     const partsItems = menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
@@ -11,7 +11,7 @@ const PossessURL = ({ menuList }) => {
     const pramString = encodeParam(partsItems, weaponItems);
 
     return (        
-        <div className={"PossessURL"}>
+        <div className={'PossessURL'}>
             <span>{`/?param=${pramString}`}</span>
             <Link to={`/?param=${pramString}`}>param</Link>
         </div>

@@ -3,7 +3,7 @@ import PartsElm from './PartsElm';
 
 const PartsContainer = ({ partsList, actions }) => {
     return (
-        <div className={"partsContainer"}>
+        <div className={'partsContainer'}>
             {partsList.map(parts => { 
                 return <PartsElm
                     key={parts.idx}
@@ -16,4 +16,3 @@ const PartsContainer = ({ partsList, actions }) => {
 
 
 export default PartsContainer;
-

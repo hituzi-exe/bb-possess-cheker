@@ -1,6 +1,6 @@
 //TODO UrlParamEncoderのversionと同じにする
 const version = 0b100001;
-const dec64char = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/";
+const dec64char = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/';
 
 export const decodeParam = (param) => {
     if (param == null) {
