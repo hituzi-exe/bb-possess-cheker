@@ -13,9 +13,11 @@ class HomeContainer extends Component {
         return (
             <div>
                 <span>工事中</span>
-                <Link to={`/`}>Home</Link>
-                <Link to={`/PossessChecker?param=${paramString}`}>Possess</Link>
-                <Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link>
+                <ul>
+                    <li><Link to={`/`}>Home</Link></li>
+                    <li><Link to={`/PossessChecker?param=${paramString}`}>PossessChecker</Link></li>
+                    <li><Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link></li>
+                </ul>
             </div>
         );
     }

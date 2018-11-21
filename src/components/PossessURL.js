@@ -8,14 +8,16 @@ const PossessURL = ({ menuList }) => {
     const partsItems = menuList.find(m => m.menuType === menuTypes.MENU_PARTS).items;
     const weaponItems = menuList.find(m => m.menuType === menuTypes.MENU_WEAPON).items;
 
-    const pramString = encodeParam(partsItems, weaponItems);
+    const paramString = encodeParam(partsItems, weaponItems);
 
     return (
         <div className={'PossessURL'}>
-            <span>{`/?param=${pramString}`}</span>
-            <Link to={`/`}>Home</Link>
-            <Link to={`/PossessChecker?param=${pramString}`}>Possess</Link>
-            <Link to={`/AssemblyAdjuster?param=${pramString}`}>AAA</Link>
+            <span>{`/PossessChecker?param=${paramString}`}</span>
+            <ul>
+                <li><Link to={`/`}>Home</Link></li>
+                <li><Link to={`/PossessChecker?param=${paramString}`}>PossessChecker</Link></li>
+                <li><Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link></li>
+            </ul>
         </div>
     )
 };
