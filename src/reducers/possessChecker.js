@@ -47,25 +47,22 @@ const possessChecker = (state = initialAppState, action) => {
             //クリックされたパーツのカウントを進める
             const addedList =
                 [...orgList.slice(0, action.idx),
-                Object.assign({}, orgItem, { count: orgItem.count > 3 ? 0 : orgItem.count + 1 }),
+                {...orgItem, count: orgItem.count > 3 ? 0 : orgItem.count + 1 },
                 ...orgList.slice(action.idx + 1)]
 
-            return Object.assign({}, state,
-                {
-                    menuList: state.menuList.map(m => {
-                        return { ...m, items: !m.isSelected ? m.items : addedList };
-                    })
-                },
-            );
+            return {
+                ...state,
+                menuList: state.menuList.map(m => {
+                    return { ...m, items: !m.isSelected ? m.items : addedList };
+                })
+            }
         case actionTypes.MENU_CLICK:
-            return Object.assign({}, state,
-                {
-                    menuList: state.menuList.map(m => {
-                        return { ...m, isSelected: m.menuType === action.menuType, };
-                    })
-                }
-            );
-
+            return {
+                ...state,
+                menuList: state.menuList.map(m => {
+                    return { ...m, isSelected: m.menuType === action.menuType, };
+                })
+            }
         default:
             return state;
     }
