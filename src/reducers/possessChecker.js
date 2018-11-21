@@ -53,7 +53,7 @@ const possessChecker = (state = initialAppState, action) => {
             return {
                 ...state,
                 menuList: state.menuList.map(m => {
-                    return { ...m, items: !m.isSelected ? m.items : addedList };
+                    return { ...m, items: m.isSelected ? addedList : m.items };
                 })
             }
         case actionTypes.MENU_CLICK:
