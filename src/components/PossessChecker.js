@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './Menu';
+import SideMenu from './SideMenu';
 import PartsHeader from './PartsHeader';
 import PartsContainer from './PartsContainer';
 import PossessURL from './PossessURL';
@@ -10,7 +10,7 @@ const PossessChecker = ({ possessChecker, actions }) => {
     return (
         <div className='PossessCheckerWrapper'>
             <div className='PossessChecker'>
-                <Menu menuList={possessChecker.menuList} actions={actions} />
+                <SideMenu menuList={possessChecker.menuList} actions={actions} />
                 <div className='content'>
                     <PartsHeader title={title} partsList={items} />
                     <PartsContainer partsList={items} actions={actions}/>

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Menu = ({ menuList, actions }) => {
+const SideMenu = ({ menuList, actions }) => {
     return (
         <div className={'menu'}>
             {menuList.map(menu => { 
-                return <MenuItem
+                return <SideMenuItem
                     key={menu.menuType}
                     menu={menu}
                     onClick={() => actions.onMenuClick(menu.menuType)} />
@@ -13,7 +13,7 @@ const Menu = ({ menuList, actions }) => {
     )
 };
 
-const MenuItem = ({menu, onClick}) => (
+const SideMenuItem = ({menu, onClick}) => (
     <div
         className={`menu__item ${menu.isSelected ? 'menu__item_state_current' : ''}`}
         onClick={onClick}>
@@ -21,4 +21,4 @@ const MenuItem = ({menu, onClick}) => (
     </div>
 )
 
-export default Menu;
+export default SideMenu;
