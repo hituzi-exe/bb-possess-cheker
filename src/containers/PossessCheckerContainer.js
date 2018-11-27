@@ -7,12 +7,15 @@ import PossessChecker from '../components/PossessChecker';
 import { initialAppStateByParam } from '../reducers/possessChecker';
 
 class PossessCheckerContainer extends Component {
+    //TODO 非推奨メソッド,UNSAFE_componentWillMountに変更すること
+    //https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
     componentWillMount = () => {
         const params = new URLSearchParams(this.props.location.search);
         const param = params.get('param');
         initialAppStateByParam(param);
     };
 
+    //TODO 非推奨メソッド,UNSAFE_componentWillReceivePropsに変更すること
     componentWillReceiveProps = nextProps => {
         // componentWillReceivePropsが無限に呼び出されるのを防ぐ
         if (nextProps.location !== this.props.location) {
