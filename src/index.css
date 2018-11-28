@@ -40,6 +40,46 @@ code {
   justify-content: center;
 }
 
+.Footer {
+  font-size:12px;
+}
+
+.Footer__counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1060px;
+  border-top: 1px solid #ccc;
+  margin-top: 24px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Footer__start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Footer__end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Footer__links {
+  display: flex;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: initial;
+  list-style-image: initial;
+}
+
+.Footer__link {
+  margin-right: 16px;
+}
+
 .PossessCheckerWrapper {
   width: 100%;
   padding-top: 10px;

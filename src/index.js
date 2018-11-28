@@ -4,7 +4,8 @@ import * as serviceWorker from './serviceWorker';
 import React from 'react';
 import { render } from 'react-dom';
 import { applyMiddleware, compose, createStore } from 'redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
@@ -29,10 +30,10 @@ render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
-                <header class='Header'>
-                    <div class='Header__counter'>
-                        <div class='Header__start'>■パーツ所持率チェッカー</div>
-                        <div class='Header__end'></div>
+                <header className='Header'>
+                    <div className='Header__counter'>
+                        <div className='Header__start'>■パーツ所持率チェッカー</div>
+                        <div className='Header__end'></div>
                     </div>
                 </header>
                 <Switch>

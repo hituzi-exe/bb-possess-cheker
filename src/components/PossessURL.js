@@ -11,13 +11,17 @@ const PossessURL = ({ menuList }) => {
     const paramString = encodeParam(partsItems, weaponItems);
 
     return (
-        <div className={'PossessURL'}>
-            <span>{`/PossessChecker?param=${paramString}`}</span>
-            <ul>
-                <li><Link to={`/`}>Home</Link></li>
-                <li><Link to={`/PossessChecker?param=${paramString}`}>PossessChecker</Link></li>
-                <li><Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link></li>
-            </ul>
+        <div className='Footer'>
+            <div className='Footer__counter'>
+                <div className='Footer__start'>
+                    <ul className='Footer__links'>
+                        <li className='Footer__link'><Link to={`/`}>Home</Link></li>
+                        <li className='Footer__link'><Link to={`/PossessChecker?param=${paramString}`}>PossessChecker</Link></li>
+                        <li className='Footer__link'><Link to={`/AssemblyAdjuster`}>AAA</Link></li>
+                    </ul>
+                </div>
+                <div className='Footer__end'></div>
+            </div>
         </div>
     )
 };

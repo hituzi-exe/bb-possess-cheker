@@ -3,29 +3,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
-import { Link } from 'react-router-dom';
+import PossessURL from '../components/PossessURL';
 //import AssemblyAdjuster from '../components/AssemblyAdjuster';
 
 class AssemblyAdjusterContainer extends Component {
     render() {
-        //const { AssemblyAdjuster } = this.props;
-        const paramString = '';
-
+        const { possessChecker } = this.props;
         return (
-            <div>
-                <span>工事中</span>
-                <ul>
-                    <li><Link to={`/`}>Home</Link></li>
-                    <li><Link to={`/PossessChecker?param=${paramString}`}>PossessChecker</Link></li>
-                    <li><Link to={`/AssemblyAdjuster?param=${paramString}`}>AAA</Link></li>
-                </ul>
-            </div>
+            <PossessURL menuList={possessChecker.menuList} />
         );
     }
 }
 
 const mapStateToProps = (state) => ({
     AssemblyAdjuster: state.AssemblyAdjuster,
+    possessChecker: state.possessChecker,
 });
 
 const mapDispach = (dispach, ownProps) => ({
